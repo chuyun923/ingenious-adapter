@@ -4,6 +4,13 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
+
+import com.chuyun.example.bean.StuDetailInfo;
+import com.chuyun.example.bean.Student;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -12,6 +19,9 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ListView listView = ((ListView) findViewById(R.id.listview));
+        listView.setAdapter(new AdapterExm(this,createTestDatas()));
     }
 
 
@@ -35,5 +45,23 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private List<Object> createTestDatas() {
+        List<Object> list = new ArrayList();
+        Student student = new Student();
+        student.setName("张三");
+        student.setNickName("小三儿");
+
+        StuDetailInfo stuDetailInfo = new StuDetailInfo();
+        stuDetailInfo.setAge(19);
+        stuDetailInfo.setHeight(175);
+        stuDetailInfo.setSex(StuDetailInfo.Sex.MALE);
+        stuDetailInfo.setWeight(65);
+        for(int i=0;i<5;i++) {
+            list.add(student);
+            list.add(stuDetailInfo);
+        }
+        return list;
     }
 }
