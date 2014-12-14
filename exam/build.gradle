@@ -23,4 +23,6 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile project(":ingeniousadapter")
     compile 'com.android.support:appcompat-v7:21.0.0'
+    compile 'com.squareup.picasso:picasso:2.4.0'
+    compile 'com.squareup.okhttp:okhttp:1.2.0'
 }
